@@ -1,16 +1,19 @@
-# Compiled Java class files
+# Compiled binaries
 *.class
 
-# ANTLR complete JAR (keep binaries out of Git)
-*.jar
-
-# Generated ANTLR parser files (optional: ignore if compiling on the fly)
+# ANTLR intermediate files
 *.interp
 *.tokens
 
-# OS and IDE metadata
-.DS_Store
-Thumbs.db
+# ANTLR generated Java files (keep only Main.java and your own source)
+BanglaLexer.java
+BanglaParser.java
+BanglaParserListener.java
+BanglaParserBaseListener.java
+
+# ANTLR Complete JAR
+*.jar
+
+# IDE files
 .vscode/
 .idea/
-*.iml
