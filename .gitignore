@@ -1,0 +1,16 @@
+# Compiled Java class files
+*.class
+
+# ANTLR complete JAR (keep binaries out of Git)
+*.jar
+
+# Generated ANTLR parser files (optional: ignore if compiling on the fly)
+*.interp
+*.tokens
+
+# OS and IDE metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
