@@ -1,19 +1,20 @@
 # Compiled binaries
 *.class
 
-# ANTLR intermediate files
+# ANTLR generated artifacts
 *.interp
 *.tokens
-
-# ANTLR generated Java files (keep only Main.java and your own source)
 BanglaLexer.java
 BanglaParser.java
 BanglaParserListener.java
 BanglaParserBaseListener.java
+BanglaParserVisitor.java
+BanglaParserBaseVisitor.java
 
-# ANTLR Complete JAR
+# Compiler generated target output
+output.py
+
+# Dependencies & IDE files
 *.jar
-
-# IDE files
 .vscode/
 .idea/
