@@ -13,6 +13,13 @@ BanglaParserBaseVisitor.java
 
 # Compiler generated target output
 output.py
+__pycache__/
+*.pyc
+*.interp
+*.tokens
+BanglaLexer.py
+BanglaParser.py
+BanglaParserListener.py
 
 # Dependencies & IDE files
 *.jar
