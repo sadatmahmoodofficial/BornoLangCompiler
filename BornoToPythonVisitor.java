@@ -47,6 +47,13 @@ public class BornoToPythonVisitor extends BanglaParserBaseVisitor<String> {
     }
 
     @Override
+    public String visitInputStatement(BanglaParser.InputStatementContext ctx) {
+        String varName = ctx.IDENTIFIER().getText();
+        String prompt = ctx.expr() != null ? visit(ctx.expr()) : "";
+        return getIndent() + varName + " = input(" + prompt + ")";
+    }
+
+    @Override
     public String visitPrintStatement(BanglaParser.PrintStatementContext ctx) {
         String exprCode = visit(ctx.expr());
         return getIndent() + "print(" + exprCode + ")";
@@ -156,5 +163,10 @@ public class BornoToPythonVisitor extends BanglaParserBaseVisitor<String> {
         if (text.equals("সত্য")) return "True";
         if (text.equals("মিথ্যা")) return "False";
         return normalizeDigits(text);
+    }
+
+    @Override
+    public String visitStringExpr(BanglaParser.StringExprContext ctx) {
+        return ctx.STRING_LITERAL().getText();
     }
 }
