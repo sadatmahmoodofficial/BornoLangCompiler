@@ -11,14 +11,11 @@ program
 statement
     : varDeclaration
     | assignmentStatement
+    | printStatement
+    | inputStatement
     | ifStatement
     | whileStatement
-    | printStatement
     | block
-    ;
-
-block
-    : LBRACE statement* RBRACE
     ;
 
 varDeclaration
@@ -26,12 +23,21 @@ varDeclaration
     ;
 
 type
-    : TYPE_INT
-    | TYPE_BOOL
+    : SONKHYA
+    | SOTTO_MITTHA
+    | BAKKYO
     ;
 
 assignmentStatement
     : IDENTIFIER ASSIGN expr SEMI
+    ;
+
+printStatement
+    : DEKHAO LPAREN expr RPAREN SEMI
+    ;
+
+inputStatement
+    : IDENTIFIER ASSIGN NAO LPAREN expr? RPAREN SEMI
     ;
 
 ifStatement
@@ -42,24 +48,26 @@ whileStatement
     : JOTOKKHON LPAREN expr RPAREN statement
     ;
 
-printStatement
-    : DEKHAO LPAREN expr RPAREN SEMI
+block
+    : LBRACE statement* RBRACE
     ;
 
 expr
-    : LPAREN expr RPAREN                     # ParenExpr
-    | NOT expr                               # NotExpr
-    | expr op=(MUL | DIV | MOD) expr         # MulDivExpr
-    | expr op=(ADD | SUB) expr               # AddSubExpr
-    | expr op=(LT | GT | LE | GE) expr       # RelationalExpr
-    | expr op=(EQ | NEQ) expr                # EqualityExpr
-    | expr AND expr                          # LogicalAndExpr
-    | expr OR expr                           # LogicalOrExpr
-    | literal                                # LiteralExpr
-    | IDENTIFIER                             # IdExpr
+    : LPAREN expr RPAREN                                    # ParenExpr
+    | NOT expr                                              # NotExpr
+    | expr op=(STAR | SLASH | MOD) expr                     # MulDivExpr
+    | expr op=(PLUS | MINUS) expr                           # AddSubExpr
+    | expr op=(LT | GT | LTE | GTE) expr                    # RelationalExpr
+    | expr op=(EQ | NEQ) expr                               # EqualityExpr
+    | expr AND expr                                         # LogicalAndExpr
+    | expr OR expr                                          # LogicalOrExpr
+    | IDENTIFIER                                            # IdExpr
+    | literal                                               # LiteralExpr
+    | STRING_LITERAL                                        # StringExpr
     ;
 
 literal
     : INT_LITERAL
-    | BOOL_LITERAL
+    | SOTTO
+    | MITTHA
     ;

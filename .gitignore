@@ -20,8 +20,13 @@ __pycache__/
 BanglaLexer.py
 BanglaParser.py
 BanglaParserListener.py
+tac_output.txt
 
 # Dependencies & IDE files
 *.jar
 .vscode/
 .idea/
+
+# OS / Editor clutter
+.DS_Store
+Thumbs.db
